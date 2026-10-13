@@ -1,0 +1,13 @@
+{
+  "name": "psychoclass-survey",
+  "version": "2.2.0",
+  "private": true,
+  "description": "Khảo sát cảm xúc học đường: phản hồi nhanh, tổng kết nền, dự phòng nhiều khóa AI và gửi Discord có sự đồng ý.",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}
