@@ -634,7 +634,7 @@ const server = http.createServer(async (req, res) => {
   }
 });
 
-server.listen(PORT, '127.0.0.1', () => {
+server.listen(PORT, '0.0.0.0', () => {
   console.log(`PsychoClass đang chạy tại http://localhost:${PORT}`);
   console.log(`AI key pool configured: ${GROQ_API_KEYS.length}`);
   console.log(`Discord notifications: ${DISCORD_WEBHOOK_URL && isAllowedWebhook(DISCORD_WEBHOOK_URL) ? 'configured' : 'not configured'}`);
