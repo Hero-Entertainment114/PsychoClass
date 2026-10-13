@@ -25,7 +25,10 @@
         <div class="brand-icon" aria-hidden="true">❧</div>
         <div><div class="brand-name">PsychoClass</div><div class="brand-sub">Một khoảng lặng để lắng nghe chính mình</div></div>
       </div>
-      <div class="status" id="connection-status"><span class="status-dot" id="status-dot"></span><span id="status-text">Đang kiểm tra AI…</span></div>
+      <div class="status" id="connection-status">
+        <span class="status-dot" id="status-dot"></span>
+        <span id="status-text">Đang kiểm tra AI…</span>
+      </div>
     </header>
 
     <main>
@@ -48,7 +51,7 @@
           <div class="care-principle"><span class="num">02</span><strong>Chia sẻ theo nhịp riêng</strong><small>Bạn có thể bỏ qua câu hỏi hoặc dừng lại bất cứ lúc nào.</small></div>
           <div class="care-principle"><span class="num">03</span><strong>Không có đáp án mẫu</strong><small>Chỉ bạn mới hiểu đầy đủ câu chuyện và trải nghiệm của mình.</small></div>
         </div>
-        <div class="actions"><span class="muted" style="font-size:12px">Không cần thông tin liên hệ.</span><button class="btn btn-primary" id="begin-btn">Bắt đầu hành trình <span aria-hidden="true">→</span></button></div>
+        <div class="actions"><span class="muted" style="font-size:12px">Không cần thông tin liên hệ.</span><button class="btn btn-primary" id="begin-btn" type="button">Bắt đầu hành trình <span aria-hidden="true">→</span></button></div>
       </section>
 
       <section class="card hidden" id="profile-view">
@@ -61,7 +64,7 @@
             <div class="field"><label for="age">Độ tuổi (bắt buộc)</label><input id="age" name="age" type="number" min="10" max="100" placeholder="Không được để trống"><div class="hint">Chỉ dùng để điều chỉnh cách diễn đạt.</div></div>
           </div>
           <label class="consent-row" for="consent-discord"><input id="consent-discord" type="checkbox"><span><strong>Tôi đồng ý với Điều khoản và Chính sách bảo mật.</strong><br>Nếu tích chọn, câu trả lời, phản hồi và phần tổng kết sẽ được bảo mật và bạn đồng ý với Điều khoản và Chính sách của chúng tôi.</span></label>
-          <label class="consent-row" for="consent-email-fallback"><input id="consent-email-fallback" type="checkbox"><span><strong>Tôi đồng ý sử dụng email dự phòng nếu việc gửi thông báo chính gặp sự cố.</strong><br>Nếu tích chọn, hệ thống có thể chuyển tiếp báo cáo qua email dự phòng được cấu hình sẵn trên máy chủ Node.js.</span></label>
+          <label class="consent-row" for="consent-email-fallback"><input id="consent-email-fallback" type="checkbox"><span><strong>Tôi đồng ý sử dụng email dự phòng nếu việc gửi thông báo gặp sự cố.</strong><br>Nếu tích chọn, hệ thống máy chủ Node.js có thể chuyển tiếp báo cáo qua email dự phòng đã cấu hình sẵn.</span></label>
           <div class="soft-note" style="margin-bottom:0">Câu trả lời được xử lý bởi dịch vụ AI để tạo câu hỏi, phản hồi và tổng kết (A.I có thể sẽ mắc lỗi, không phải chẩn đoán hay thay thế chuyên gia tâm lý). Không nhập mật khẩu, địa chỉ, số điện thoại hoặc thông tin riêng tư mà bạn không muốn chia sẻ.</div>
           <div class="error-box hidden" id="profile-error" role="alert"></div>
           <div class="actions"><button type="button" class="btn btn-secondary" id="back-welcome">← Quay lại</button><button type="submit" class="btn btn-primary" id="create-questions-btn">Tạo bộ câu hỏi <span aria-hidden="true">→</span></button></div>
@@ -82,7 +85,7 @@
           <div class="followup"><label for="followup-textarea" id="followup-label">Một câu hỏi gợi mở (không bắt buộc)</label><p id="followup-question" style="font-size:13px;color:#5e5a7a;margin:0 0 8px"></p><textarea class="answer-input" id="followup-textarea" maxlength="1500" placeholder="Bạn có thể suy nghĩ hoặc trả lời thêm ở đây…" style="min-height:82px"></textarea></div>
         </div>
         <div class="error-box hidden" id="quiz-error" role="alert"></div>
-        <div class="actions"><button class="btn btn-secondary" id="prev-btn">← Câu trước</button><button class="btn btn-primary" id="next-btn">Gửi câu trả lời để nhận phản hồi →</button></div>
+        <div class="actions"><button class="btn btn-secondary" id="prev-btn" type="button">← Câu trước</button><button class="btn btn-primary" id="next-btn" type="button">Gửi câu trả lời để nhận phản hồi →</button></div>
         <div class="source-help">Những gợi mở ở đây chỉ để bạn tự suy ngẫm, không phải kết luận chắc chắn về bạn. Câu hỏi có thể được tạo khác nhau ở mỗi lượt làm khảo sát.</div>
       </section>
 
@@ -91,7 +94,7 @@
         <div class="divider"></div>
         <div id="final-loading" class="small-loading"><span class="spinner"></span><span>Đang đón nhận những điều bạn đã chia sẻ…</span></div>
         <div id="final-error" class="error-box hidden" role="alert"></div>
-        <button class="btn btn-secondary hidden" id="retry-final-btn" style="margin:0 0 12px">Thử lại phần tổng kết</button>
+        <button class="btn btn-secondary hidden" id="retry-final-btn" type="button" style="margin:0 0 12px">Thử lại phần tổng kết</button>
         <div id="final-content" class="hidden">
           <div id="analysis-status" class="info-box summary-status" aria-live="polite">Mình đã nhận được phần chia sẻ của bạn.</div>
           <div class="result-section"><h3>✧ Điều mình muốn gửi bạn</h3><p id="analysis-overview"></p></div>
@@ -100,7 +103,7 @@
           <div class="result-section"><h3>✦ Gợi ý có thể thử</h3><ol id="analysis-recommendations"></ol></div>
           <div class="result-callout" id="analysis-closing"></div>
           <div id="discord-status" class="success-box" style="margin-top:17px"></div>
-          <div class="result-actions disabled-actions" id="result-actions"><button class="btn btn-secondary" id="copy-report-btn">Sao chép báo cáo</button><button class="btn btn-secondary" id="download-txt-btn">Tải báo cáo TXT</button><button class="btn btn-secondary" id="download-json-btn">Tải báo cáo JSON</button><button class="btn btn-primary" id="restart-btn">Làm khảo sát mới ↻</button></div>
+          <div class="result-actions disabled-actions" id="result-actions"><button class="btn btn-secondary" id="copy-report-btn" type="button">Sao chép báo cáo</button><button class="btn btn-secondary" id="download-txt-btn" type="button">Tải báo cáo TXT</button><button class="btn btn-secondary" id="download-json-btn" type="button">Tải báo cáo JSON</button><button class="btn btn-primary" id="restart-btn" type="button">Làm khảo sát mới ↻</button></div>
         </div>
       </section>
     </main>
@@ -108,322 +111,453 @@
   </div>
 
   <script>
-    const state = {
-      questions: [], currentIndex: 0, answers: Object.create(null), userInfo: { nickname: '', age: '' },
-      consentDiscord: false, consentEmailFallback: false, finalReport: null, isBusy: false, analysisJobId: null, retryCoachQuestionId: null
-    };
-    const $ = (id) => document.getElementById(id);
-    const views = ['welcome-view', 'profile-view', 'quiz-view', 'summary-view'];
+    document.addEventListener('DOMContentLoaded', () => {
+      const state = {
+        questions: [], currentIndex: 0, answers: Object.create(null), userInfo: { nickname: '', age: '' },
+        consentDiscord: false, consentEmailFallback: false, finalReport: null, isBusy: false, analysisJobId: null, retryCoachQuestionId: null
+      };
+      const $ = (id) => document.getElementById(id);
+      const views = ['welcome-view', 'profile-view', 'quiz-view', 'summary-view'];
 
-    function showView(viewId) { views.forEach(id => $(id).classList.toggle('hidden', id !== viewId)); window.scrollTo({top: 0, behavior: 'smooth'}); }
-    function showError(id, message) { $(id).textContent = message; $(id).classList.remove('hidden'); }
-    function clearError(id) { $(id).textContent = ''; $(id).classList.add('hidden'); }
-    function showQuizFeedback(message, kind = 'error') {
-      const el = $('quiz-error');
-      el.textContent = message;
-      el.className = `${kind === 'info' ? 'info-box' : 'error-box'}`;
-      el.setAttribute('role', kind === 'info' ? 'status' : 'alert');
-    }
-    function wait(ms) { return new Promise(resolve => setTimeout(resolve, ms)); }
-    function canRetryCoach(error) {
-      const status = Number(error?.status || 0);
-      if ([400, 401, 403, 404, 413].includes(status)) return false;
-      if ([408, 425, 429, 500, 502, 503, 504].includes(status)) return true;
-      return /provider rejected|request-error|failed to fetch|network|timeout|timed out|temporar|fetch/i.test(String(error?.message || ''));
-    }
-    function friendlyCoachError(error) {
-      const status = Number(error?.status || 0);
-      if (status === 429) return 'Dịch vụ phản hồi đang bận. Câu trả lời của bạn đã được giữ lại. Bạn có thể thử lại sau một chút.';
-      if (status === 401 || status === 403) return 'Hiện chưa thể tạo phản hồi cho câu này. Câu trả lời vẫn được giữ lại; bạn có thể thử lại sau.';
-      if (status === 400) return 'Phản hồi cho câu này chưa tạo được. Nội dung bạn đã viết vẫn được giữ lại, bạn có thể thử lại.';
-      return 'Máy chủ đang quá tải, hãy đợi một lát rồi thử lại.';
-    }
-    async function api(path, data) {
-      const response = await fetch(path, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) });
-      const result = await response.json().catch(() => ({}));
-      if (!response.ok) {
-        const error = new Error(result.error || 'Có điều chưa thành công. Bạn thử lại nhé.');
-        error.status = response.status;
-        error.code = result.code || '';
-        throw error;
+      function showView(viewId) { 
+        views.forEach(id => {
+          const el = $(id);
+          if (el) el.classList.toggle('hidden', id !== viewId);
+        }); 
+        window.scrollTo({top: 0, behavior: 'smooth'}); 
       }
-      return result;
-    }
-
-    async function checkServer() {
-      try {
-        const r = await fetch('/api/health', { cache: 'no-store' });
-        const data = await r.json();
-        const dot = $('status-dot');
-        const text = $('status-text');
-        if (!data.aiConfigured) { dot.style.background = '#f59e0b'; text.textContent = 'Cần cấu hình AI'; }
-        else if (data.discordConfigured && data.emailFallbackConfigured) { dot.style.background = '#38a779'; text.textContent = 'AI, Discord & email sẵn sàng'; }
-        else if (data.discordConfigured) { dot.style.background = '#38a779'; text.textContent = 'AI & Discord sẵn sàng'; }
-        else if (data.emailFallbackConfigured) { dot.style.background = '#38a779'; text.textContent = 'AI & email dự phòng sẵn sàng'; }
-        else { dot.style.background = '#38a779'; text.textContent = 'AI sẵn sàng'; }
-      } catch { $('status-dot').style.background = '#e46b79'; $('status-text').textContent = 'Không kết nối máy chủ'; }
-    }
-
-    $('begin-btn').addEventListener('click', () => showView('profile-view'));
-    $('back-welcome').addEventListener('click', () => showView('welcome-view'));$('profile-form').addEventListener('submit', startSurvey);
-    $('prev-btn').addEventListener('click', previousQuestion);$('next-btn').addEventListener('click', nextQuestion);
-    $('restart-btn').addEventListener('click', restartSurvey);$('retry-final-btn').addEventListener('click', finishSurvey);
-    $('copy-report-btn').addEventListener('click', copyReport);$('download-txt-btn').addEventListener('click', downloadTxt);
-    $('download-json-btn').addEventListener('click', downloadJson);$('answer-textarea').addEventListener('input', () => {
-      const q = state.questions[state.currentIndex];
-      const value = $('answer-textarea').value;
-      $('answer-count').textContent = `${value.length} / 5000`;
-      if (q && !state.answers[q.id]?.coach && !state.answers[q.id]?.skipped) {
-        const previous = state.answers[q.id] || {};
-        state.answers[q.id] = { ...previous, questionId: q.id, title: q.title, category: q.category, sourceType: q.sourceType, sourceNumber: q.sourceNumber, answer: value, coach: null, reflectionAnswer: previous.reflectionAnswer || '' };
+      function showError(id, message) { 
+        const el = $(id);
+        if (el) { el.textContent = message; el.classList.remove('hidden'); }
       }
-    });
-
-    async function startSurvey(event) {
-      event.preventDefault();
-      if (state.isBusy) return;
-      state.userInfo = { nickname: $('nickname').value.trim().slice(0, 80), age:$('age').value.trim() };
-      state.consentDiscord = $('consent-discord').checked;
-      state.consentEmailFallback = $('consent-email-fallback').checked;
-      const button = $('create-questions-btn');
-      button.disabled = true; button.innerHTML = '<span class="spinner"></span> Đang tạo 10 câu hỏi…';
-      clearError('profile-error'); state.isBusy = true;
-      try {
-        const data = await api('/api/questions', {});
-        if (!Array.isArray(data.questions) || data.questions.length !== 10) throw new Error('Mình chưa thể chuẩn bị đủ câu hỏi. Bạn thử lại nhé.');
-        state.questions = data.questions; state.answers = Object.create(null); state.currentIndex = 0; state.finalReport = null;
-        renderQuestion(); showView('quiz-view');
-      } catch (error) { showError('profile-error', error.message); }
-      finally { state.isBusy = false; button.disabled = false; button.innerHTML = 'Tạo bộ câu hỏi <span aria-hidden="true">→</span>'; }
-    }
-
-    function renderQuestion() {
-      const q = state.questions[state.currentIndex];
-      if (!q) return;
-      const saved = state.answers[q.id] || { answer: '', coach: null, reflectionAnswer: '' };
-      $('question-counter').textContent = `Câu ${state.currentIndex + 1} / ${state.questions.length}`;
-      $('question-category').textContent = q.category || 'Cảm xúc & tình cảm';
-      $('question-title').textContent = q.title;
-      $('question-desc').textContent = q.description || 'Hãy trả lời theo mức độ thoải mái của bạn.';
-      $('progress-bar').style.width = `${((state.currentIndex + 1) / state.questions.length) * 100}%`;
-      $('answer-textarea').value = saved.answer \vert{}\vert{} '';$('answer-textarea').placeholder = q.placeholder || 'Viết suy nghĩ của bạn ở đây…';
-      $('answer-textarea').disabled = Boolean(saved.coach) \vert{}\vert{} Boolean(saved.skipped);$('answer-count').textContent = `${$('answer-textarea').value.length} / 5000`;
-      $('coach-box').classList.toggle('hidden', !saved.coach);
-      if (saved.coach) {
-        $('coach-reflection').textContent = saved.coach.reflection;
-        $('coach-advice').textContent = saved.coach.advice;
-        $('followup-question').textContent = saved.coach.followUpQuestion;
-        $('followup-textarea').value = saved.reflectionAnswer || '';
-      } else {
-        $('coach-reflection').textContent = '';$('coach-advice').textContent = ''; $('followup-question').textContent = '';$('followup-textarea').value = '';
+      function clearError(id) { 
+        const el = $(id);
+        if (el) { el.textContent = ''; el.classList.add('hidden'); }
       }
-      $('prev-btn').style.visibility = state.currentIndex === 0 ? 'hidden' : 'visible';$('next-btn').disabled = false;
-      $('next-btn').innerHTML = saved.coach || saved.skipped
-        ? (state.currentIndex === state.questions.length - 1 ? 'Xem tổng kết →' : 'Câu tiếp theo →')
-        : (state.retryCoachQuestionId === q.id ? 'Thử lại phản hồi ↻' : 'Gửi câu trả lời để nhận phản hồi →');
-      clearError('quiz-error');
-    }
-
-    async function nextQuestion() {
-      if (state.isBusy) return;
-      const q = state.questions[state.currentIndex];
-      if (!q) return;
-      let answer = $('answer-textarea').value.trim();
-      let saved = state.answers[q.id];
-
-      if (saved?.coach || saved?.skipped) {
-        if (saved.coach) saved.reflectionAnswer = $('followup-textarea').value.trim().slice(0, 1500);
-        advanceQuestion();
-        return;
+      function showQuizFeedback(message, kind = 'error') {
+        const el = $('quiz-error');
+        if (!el) return;
+        el.textContent = message;
+        el.className = `${kind === 'info' ? 'info-box' : 'error-box'}`;
+        el.setAttribute('role', kind === 'info' ? 'status' : 'alert');
+      }
+      function wait(ms) { return new Promise(resolve => setTimeout(resolve, ms)); }
+      function canRetryCoach(error) {
+        const status = Number(error?.status || 0);
+        if ([400, 401, 403, 404, 413].includes(status)) return false;
+        if ([408, 425, 429, 500, 502, 503, 504].includes(status)) return true;
+        return /provider rejected|request-error|failed to fetch|network|timeout|timed out|temporar|fetch/i.test(String(error?.message || ''));
+      }
+      function friendlyCoachError(error) {
+        const status = Number(error?.status || 0);
+        if (status === 429) return 'Dịch vụ phản hồi đang bận. Câu trả lời của bạn đã được giữ lại. Bạn có thể thử lại sau một chút.';
+        if (status === 401 || status === 403) return 'Hiện chưa thể tạo phản hồi cho câu này. Câu trả lời vẫn được giữ lại; bạn có thể thử lại sau.';
+        if (status === 400) return 'Phản hồi cho câu này chưa tạo được. Nội dung bạn đã viết vẫn được giữ lại, bạn có thể thử lại.';
+        return 'Máy chủ đang quá tải, hãy đợi một lát rồi thử lại.';
+      }
+      async function api(path, data) {
+        const response = await fetch(path, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) });
+        const result = await response.json().catch(() => ({}));
+        if (!response.ok) {
+          const error = new Error(result.error || 'Có điều chưa thành công. Bạn thử lại nhé.');
+          error.status = response.status;
+          error.code = result.code || '';
+          throw error;
+        }
+        return result;
       }
 
-      if (!answer) {
-        const skip = window.confirm('Bạn chưa nhập câu trả lời. Bỏ qua câu này? Câu hỏi vẫn được tính vào tổng số 10 câu.');
-        if (!skip) return;
-        state.answers[q.id] = { questionId: q.id, title: q.title, category: q.category, sourceType: q.sourceType, sourceNumber: q.sourceNumber, answer: '(Người tham gia bỏ qua câu hỏi)', coach: null, reflectionAnswer: '', skipped: true };
-        advanceQuestion();
-        return;
+      async function checkServer() {
+        try {
+          const r = await fetch('/api/health', { cache: 'no-store' });
+          if (!r.ok) throw new Error('Health check failed');
+          const data = await r.json();
+          const dot = $('status-dot');
+          const text = $('status-text');
+          if (!dot || !text) return;
+          if (!data.aiConfigured) { dot.style.background = '#f59e0b'; text.textContent = 'Cần cấu hình AI'; }
+          else if (data.discordConfigured && data.emailFallbackConfigured) { dot.style.background = '#38a779'; text.textContent = 'AI, Discord & email sẵn sàng'; }
+          else if (data.discordConfigured) { dot.style.background = '#38a779'; text.textContent = 'AI & Discord sẵn sàng'; }
+          else if (data.emailFallbackConfigured) { dot.style.background = '#38a779'; text.textContent = 'AI & email dự phòng sẵn sàng'; }
+          else { dot.style.background = '#38a779'; text.textContent = 'AI sẵn sàng'; }
+        } catch { 
+          const dot = $('status-dot');
+          const text = $('status-text');
+          if (dot) dot.style.background = '#e46b79'; 
+          if (text) text.textContent = 'Chạy chế độ độc lập (Client)'; 
+        }
       }
-      state.answers[q.id] = { questionId: q.id, title: q.title, category: q.category, sourceType: q.sourceType, sourceNumber: q.sourceNumber, answer, coach: null, reflectionAnswer: '' };
-      await requestCoach(q, answer);
-    }
 
-    async function requestCoach(q, answer) {
-      state.isBusy = true;
-      $('next-btn').disabled = true;
-      $('prev-btn').disabled = true;
-      $('next-btn').innerHTML = '<span class="spinner"></span> Đang đọc câu trả lời…';
-      clearError('quiz-error');
+      // Gắn sự kiện an toàn với kiểm tra phần tử tồn tại
+      const bindEvent = (id, event, handler) => {
+        const el = $(id);
+        if (el) el.addEventListener(event, handler);
+      };
 
-      let coachResult = null;
-      let finalError = null;
-      try {
-        for (let attempt = 1; attempt <= 2; attempt++) {
-          try {
-            coachResult = await api('/api/coach', { question: q, answer, age: state.userInfo.age });
-            break;
-          } catch (error) {
-            if (attempt === 1 && canRetryCoach(error)) {
-              showQuizFeedback('Phản hồi vừa bị gián đoạn. Mình đang thử lại một lần nữa; câu trả lời của bạn đã được giữ lại.', 'info');
-              await wait(650);
-              continue;
-            }
-            throw error;
+      bindEvent('begin-btn', 'click', () => showView('profile-view'));
+      bindEvent('back-welcome', 'click', () => showView('welcome-view'));
+      bindEvent('profile-form', 'submit', startSurvey);
+      bindEvent('prev-btn', 'click', previousQuestion);
+      bindEvent('next-btn', 'click', nextQuestion);
+      bindEvent('restart-btn', 'click', restartSurvey);
+      bindEvent('retry-final-btn', 'click', finishSurvey);
+      bindEvent('copy-report-btn', 'click', copyReport);
+      bindEvent('download-txt-btn', 'click', downloadTxt);
+      bindEvent('download-json-btn', 'click', downloadJson);
+      
+      const answerTextarea = $('answer-textarea');
+      if (answerTextarea) {
+        answerTextarea.addEventListener('input', () => {
+          const q = state.questions[state.currentIndex];
+          const value = answerTextarea.value;
+          const countEl = $('answer-count');
+          if (countEl) countEl.textContent = `${value.length} / 5000`;
+          if (q && !state.answers[q.id]?.coach && !state.answers[q.id]?.skipped) {
+            const previous = state.answers[q.id] || {};
+            state.answers[q.id] = { ...previous, questionId: q.id, title: q.title, category: q.category, sourceType: q.sourceType, sourceNumber: q.sourceNumber, answer: value, coach: null, reflectionAnswer: previous.reflectionAnswer || '' };
+          }
+        });
+      }
+
+      async function startSurvey(event) {
+        event.preventDefault();
+        if (state.isBusy) return;
+        const nicknameEl = $('nickname');
+        const ageEl = $('age');
+        const consentDiscordEl = $('consent-discord');
+        const consentEmailEl = $('consent-email-fallback');
+
+        state.userInfo = { 
+          nickname: nicknameEl ? nicknameEl.value.trim().slice(0, 80) : '', 
+          age: ageEl ? ageEl.value.trim() : '' 
+        };
+        state.consentDiscord = consentDiscordEl ? consentDiscordEl.checked : false;
+        state.consentEmailFallback = consentEmailEl ? consentEmailEl.checked : false;
+
+        const button = $('create-questions-btn');
+        if (button) {
+          button.disabled = true; 
+          button.innerHTML = '<span class="spinner"></span> Đang tạo 10 câu hỏi…';
+        }
+        clearError('profile-error'); 
+        state.isBusy = true;
+        try {
+          const data = await api('/api/questions', {});
+          if (!Array.isArray(data.questions) || data.questions.length !== 10) throw new Error('Mình chưa thể chuẩn bị đủ câu hỏi. Bạn thử lại nhé.');
+          state.questions = data.questions; state.answers = Object.create(null); state.currentIndex = 0; state.finalReport = null;
+          renderQuestion(); showView('quiz-view');
+        } catch (error) { 
+          showError('profile-error', error.message || 'Không thể kết nối máy chủ để tạo câu hỏi.'); 
+        } finally { 
+          state.isBusy = false; 
+          if (button) {
+            button.disabled = false; 
+            button.innerHTML = 'Tạo bộ câu hỏi <span aria-hidden="true">→</span>';
           }
         }
-        if (!coachResult) throw new Error('Chưa nhận được phản hồi.');
-        state.answers[q.id].coach = coachResult;
-        state.retryCoachQuestionId = null;
-      } catch (error) {
-        finalError = friendlyCoachError(error);
-        state.retryCoachQuestionId = q.id;
-      } finally {
-        state.isBusy = false;
-        $('next-btn').disabled = false;
-        $('prev-btn').disabled = false;
-        renderQuestion();
-        if (finalError) {
-          showQuizFeedback(finalError, 'error');
-          $('next-btn').textContent = 'Thử lại phản hồi ↻';
+      }
+
+      function renderQuestion() {
+        const q = state.questions[state.currentIndex];
+        if (!q) return;
+        const saved = state.answers[q.id] || { answer: '', coach: null, reflectionAnswer: '' };
+        
+        const counter = $('question-counter');
+        if (counter) counter.textContent = `Câu ${state.currentIndex + 1} / ${state.questions.length}`;
+        
+        const category = $('question-category');
+        if (category) category.textContent = q.category || 'Cảm xúc & tình cảm';
+        
+        const title = $('question-title');
+        if (title) title.textContent = q.title;
+        
+        const desc = $('question-desc');
+        if (desc) desc.textContent = q.description || 'Hãy trả lời theo mức độ thoải mái của bạn.';
+        
+        const progressBar = $('progress-bar');
+        if (progressBar) progressBar.style.width = `${((state.currentIndex + 1) / state.questions.length) * 100}%`;
+        
+        const textarea = $('answer-textarea');
+        if (textarea) {
+          textarea.value = saved.answer || '';
+          textarea.placeholder = q.placeholder || 'Viết suy nghĩ của bạn ở đây…';
+          textarea.disabled = Boolean(saved.coach) || Boolean(saved.skipped);
+        }
+        
+        const answerCount = $('answer-count');
+        if (answerCount) answerCount.textContent = `${(textarea ? textarea.value.length : 0)} / 5000`;
+        
+        const coachBox = $('coach-box');
+        if (coachBox) coachBox.classList.toggle('hidden', !saved.coach);
+        
+        if (saved.coach) {
+          const refEl = $('coach-reflection');
+          const advEl = $('coach-advice');
+          const fqEl = $('followup-question');
+          const ftaEl = $('followup-textarea');
+          if (refEl) refEl.textContent = saved.coach.reflection;
+          if (advEl) advEl.textContent = saved.coach.advice;
+          if (fqEl) fqEl.textContent = saved.coach.followUpQuestion;
+          if (ftaEl) ftaEl.value = saved.reflectionAnswer || '';
         } else {
-          $('coach-box').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+          const refEl = $('coach-reflection');
+          const advEl = $('coach-advice');
+          const fqEl = $('followup-question');
+          const ftaEl = $('followup-textarea');
+          if (refEl) refEl.textContent = ''; 
+          if (advEl) advEl.textContent = ''; 
+          if (fqEl) fqEl.textContent = ''; 
+          if (ftaEl) ftaEl.value = '';
         }
-      }
-    }
-
-    function previousQuestion() {
-      if (state.isBusy || state.currentIndex <= 0) return;
-      const q = state.questions[state.currentIndex];
-      const saved = state.answers[q.id];
-      if (saved && !saved.coach && !saved.skipped) saved.answer = $('answer-textarea').value.trim();
-      state.currentIndex -= 1; renderQuestion();
-    }
-
-    function advanceQuestion() {
-      if (state.currentIndex < state.questions.length - 1) {
-        state.currentIndex += 1; renderQuestion(); window.scrollTo({top: 0, behavior: 'smooth'});
-      } else finishSurvey();
-    }
-
-    async function finishSurvey() {
-      showView('summary-view');
-      $('final-loading').classList.remove('hidden'); $('final-content').classList.add('hidden');$('retry-final-btn').classList.add('hidden'); clearError('final-error');
-      const questions = state.questions.map(q => {
-        const a = state.answers[q.id] || {};
-        return { id: q.id, title: q.title, category: q.category, sourceType: q.sourceType, sourceNumber: q.sourceNumber, answer: a.answer || '(Người tham gia bỏ qua câu hỏi)', coach: a.coach || null, reflectionAnswer: a.reflectionAnswer || '' };
-      });
-      try {
-        const result = await api('/api/submit', {
-          userInfo: state.userInfo,
-          consentDiscord: state.consentDiscord,
-          consentEmailFallback: state.consentEmailFallback,
-          questions
-        });
-        state.analysisJobId = result.jobId || null;
-        state.finalReport = { ...result, userInfo: state.userInfo, questions };
-        renderFinalAnalysis(result.analysis);
-        $('analysis-status').textContent = result.analysisMessage || 'Mình đã nhận được phần chia sẻ của bạn. Bản tổng kết cá nhân đang được hoàn thiện.';
-        $('analysis-status').className = 'info-box summary-status';
-        updateDeliveryStatus(result.discord || {}, result.emailFallback || {});
-        $('final-loading').classList.add('hidden');$('final-content').classList.remove('hidden');
-        if (state.analysisJobId) void watchAnalysisResult(state.analysisJobId);
-      } catch (error) {
-        $('final-loading').classList.add('hidden');
-        showError('final-error', `${error.message} Bạn có thể thử mở lại phần tổng kết; câu trả lời vẫn còn trong phiên hiện tại.`);
-        $('retry-final-btn').classList.remove('hidden');
-      }
-    }
-
-    function updateDeliveryStatus(discord = {}, emailFallback = {}) {
-      const el = $('discord-status');
-      const discordSent = Boolean(discord.sent);
-      const emailSent = Boolean(emailFallback.sent);
-
-      if (discordSent || emailSent) {
-        el.className = 'success-box';
-        let msg = '✓ ';
-        if (discordSent) {
-          msg += (discord.reason || 'Báo cáo đã được gửi thành công đến hệ thống quản lý.');
-        } else if (emailSent) {
-          msg += `Discord không gửi được (${discord.reason || 'lỗi'}). ✓ Báo cáo đã được chuyển sang email dự phòng thành công.`;
+        
+        const prevBtn = $('prev-btn');
+        if (prevBtn) prevBtn.style.visibility = state.currentIndex === 0 ? 'hidden' : 'visible';
+        
+        const nextBtn = $('next-btn');
+        if (nextBtn) {
+          nextBtn.disabled = false;
+          nextBtn.innerHTML = saved.coach || saved.skipped
+            ? (state.currentIndex === state.questions.length - 1 ? 'Xem tổng kết →' : 'Câu tiếp theo →')
+            : (state.retryCoachQuestionId === q.id ? 'Thử lại phản hồi ↻' : 'Gửi câu trả lời để nhận phản hồi →');
         }
-        el.textContent = msg;
-      } else if (state.consentDiscord) {
-        el.className = 'error-box';
-        el.textContent = `Gửi thông báo thất bại. Discord: ${discord.reason || 'chưa gửi được.'} ${state.consentEmailFallback ? `Email dự phòng: ${emailFallback.reason || 'chưa gửi được.'}` : 'Bạn chưa đồng ý dùng email dự phòng.'}`;
-      } else {
-        el.className = 'neutral-box';
-        el.textContent = 'Bạn đã chọn giữ kết quả ở phiên trình duyệt này, không gửi báo cáo ra ngoài.';
+        clearError('quiz-error');
       }
-    }
 
-    async function watchAnalysisResult(jobId) {
-      const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
-      let tries = 0;
-      while (state.analysisJobId === jobId && tries < 150) {
-        await delay(1000);
-        tries++;
+      async function nextQuestion() {
+        if (state.isBusy) return;
+        const q = state.questions[state.currentIndex];
+        if (!q) return;
+        const textarea = $('answer-textarea');
+        let answer = textarea ? textarea.value.trim() : '';
+        let saved = state.answers[q.id];
+
+        if (saved?.coach || saved?.skipped) {
+          const fta = $('followup-textarea');
+          if (saved.coach && fta) saved.reflectionAnswer = fta.value.trim().slice(0, 1500);
+          advanceQuestion();
+          return;
+        }
+
+        if (!answer) {
+          const skip = window.confirm('Bạn chưa nhập câu trả lời. Bỏ qua câu này? Câu hỏi vẫn được tính vào tổng số 10 câu.');
+          if (!skip) return;
+          state.answers[q.id] = { questionId: q.id, title: q.title, category: q.category, sourceType: q.sourceType, sourceNumber: q.sourceNumber, answer: '(Người tham gia bỏ qua câu hỏi)', coach: null, reflectionAnswer: '', skipped: true };
+          advanceQuestion();
+          return;
+        }
+        state.answers[q.id] = { questionId: q.id, title: q.title, category: q.category, sourceType: q.sourceType, sourceNumber: q.sourceNumber, answer, coach: null, reflectionAnswer: '' };
+        await requestCoach(q, answer);
+      }
+
+      async function requestCoach(q, answer) {
+        state.isBusy = true;
+        const nextBtn = $('next-btn');
+        const prevBtn = $('prev-btn');
+        if (nextBtn) { nextBtn.disabled = true; nextBtn.innerHTML = '<span class="spinner"></span> Đang đọc câu trả lời…'; }
+        if (prevBtn) prevBtn.disabled = true;
+        clearError('quiz-error');
+
+        let coachResult = null;
+        let finalError = null;
         try {
-          const response = await fetch(`/api/results?id=${encodeURIComponent(jobId)}`, { cache: 'no-store' });
-          if (!response.ok) continue;
-          const result = await response.json();
-          if (state.analysisJobId !== jobId) return;
-          if (result.analysisPersonalized || result.stage === 'complete') {
-            $('result-actions').classList.remove('disabled-actions');
-            renderFinalAnalysis(result.analysis);
-            state.finalReport = { ...state.finalReport, ...result, userInfo: state.userInfo, questions: state.finalReport.questions };
-            $('analysis-status').textContent = result.analysisPersonalized
-              ? 'Bản tổng kết cá nhân của bạn đã sẵn sàng. Hãy đón nhận những gợi ý phù hợp với mình, và chỉ giữ lại điều thấy có ích.'
-              : (result.analysisMessage || 'Mình đã chuẩn bị một lời nhắn hỗ trợ để bạn không phải chờ thêm.');
-            $('analysis-status').className = result.analysisPersonalized ? 'success-box summary-status' : 'info-box summary-status';
+          for (let attempt = 1; attempt <= 2; attempt++) {
+            try {
+              coachResult = await api('/api/coach', { question: q, answer, age: state.userInfo.age });
+              break;
+            } catch (error) {
+              if (attempt === 1 && canRetryCoach(error)) {
+                showQuizFeedback('Phản hồi vừa bị gián đoạn. Mình đang thử lại một lần nữa; câu trả lời của bạn đã được giữ lại.', 'info');
+                await wait(650);
+                continue;
+              }
+              throw error;
+            }
+          }
+          if (!coachResult) throw new Error('Chưa nhận được phản hồi.');
+          state.answers[q.id].coach = coachResult;
+          state.retryCoachQuestionId = null;
+        } catch (error) {
+          finalError = friendlyCoachError(error);
+          state.retryCoachQuestionId = q.id;
+        } finally {
+          state.isBusy = false;
+          if (nextBtn) nextBtn.disabled = false;
+          if (prevBtn) prevBtn.disabled = false;
+          renderQuestion();
+          if (finalError) {
+            showQuizFeedback(finalError, 'error');
+            if (nextBtn) nextBtn.textContent = 'Thử lại phản hồi ↻';
+          } else {
+            const coachBox = $('coach-box');
+            if (coachBox) coachBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+          }
+        }
+      }
+
+      function previousQuestion() {
+        if (state.isBusy || state.currentIndex <= 0) return;
+        const q = state.questions[state.currentIndex];
+        const saved = state.answers[q.id];
+        const textarea = $('answer-textarea');
+        if (saved && !saved.coach && !saved.skipped && textarea) saved.answer = textarea.value.trim();
+        state.currentIndex -= 1; renderQuestion();
+      }
+
+      function advanceQuestion() {
+        if (state.currentIndex < state.questions.length - 1) {
+          state.currentIndex += 1; renderQuestion(); window.scrollTo({top: 0, behavior: 'smooth'});
+        } else finishSurvey();
+      }
+
+      async function finishSurvey() {
+        showView('summary-view');
+        const finalLoading = $('final-loading');
+        const finalContent = $('final-content');
+        const retryBtn = $('retry-final-btn');
+        if (finalLoading) finalLoading.classList.remove('hidden'); 
+        if (finalContent) finalContent.classList.add('hidden'); 
+        if (retryBtn) retryBtn.classList.add('hidden'); 
+        clearError('final-error');
+
+        const questions = state.questions.map(q => {
+          const a = state.answers[q.id] || {};
+          return { id: q.id, title: q.title, category: q.category, sourceType: q.sourceType, sourceNumber: q.sourceNumber, answer: a.answer || '(Người tham gia bỏ qua câu hỏi)', coach: a.coach || null, reflectionAnswer: a.reflectionAnswer || '' };
+        });
+        try {
+          const result = await api('/api/submit', {
+            userInfo: state.userInfo,
+            consentDiscord: state.consentDiscord,
+            consentEmailFallback: state.consentEmailFallback,
+            questions
+          });
+          state.analysisJobId = result.jobId || null;
+          state.finalReport = { ...result, userInfo: state.userInfo, questions };
+          renderFinalAnalysis(result.analysis);
+          
+          const analysisStatus = $('analysis-status');
+          if (analysisStatus) {
+            analysisStatus.textContent = result.analysisMessage || 'Mình đã nhận được phần chia sẻ của bạn. Bản tổng kết cá nhân đang được hoàn thiện.';
+            analysisStatus.className = 'info-box summary-status';
           }
           updateDeliveryStatus(result.discord || {}, result.emailFallback || {});
-          if (result.stage === 'complete') return;
-        } catch { /* Bỏ qua lỗi kết nối tạm thời */ }
+          if (finalLoading) finalLoading.classList.add('hidden');
+          if (finalContent) finalContent.classList.remove('hidden');
+          if (state.analysisJobId) void watchAnalysisResult(state.analysisJobId);
+        } catch (error) {
+          if (finalLoading) finalLoading.classList.add('hidden');
+          showError('final-error', `${error.message} Bạn có thể thử mở lại phần tổng kết; câu trả lời vẫn còn trong phiên hiện tại.`);
+          if (retryBtn) retryBtn.classList.remove('hidden');
+        }
       }
-      if (state.analysisJobId === jobId) {
-        $('analysis-status').textContent = 'Lời nhắn mở đầu vẫn ở đây. Bạn có thể dùng kết quả hiện tại hoặc thử làm mới phần tổng kết sau.';
-        $('analysis-status').className = 'info-box summary-status';
+
+      function updateDeliveryStatus(discord = {}, emailFallback = {}) {
+        const el = $('discord-status');
+        if (!el) return;
+        const discordSent = Boolean(discord.sent);
+        const emailSent = Boolean(emailFallback.sent);
+
+        if (discordSent || emailSent) {
+          el.className = 'success-box';
+          let msg = '✓ ';
+          if (discordSent) {
+            msg += (discord.reason || 'Báo cáo đã được gửi thành công đến hệ thống quản lý.');
+          } else if (emailSent) {
+            msg += `Discord không gửi được. ✓ Báo cáo đã được chuyển sang email dự phòng thành công.`;
+          }
+          el.textContent = msg;
+        } else if (state.consentDiscord) {
+          el.className = 'error-box';
+          el.textContent = `Gửi thông báo thất bại. Discord: ${discord.reason || 'chưa gửi được.'}`;
+        } else {
+          el.className = 'neutral-box';
+          el.textContent = 'Bạn đã chọn giữ kết quả ở phiên trình duyệt này, không gửi báo cáo ra ngoài.';
+        }
       }
-    }
 
-    function fillList(id, items, fallback) {
-      const ul = $(id); ul.replaceChildren();
-      const rows = items && items.length ? items : [fallback];
-      rows.forEach(text => { const li = document.createElement('li'); li.textContent = text; ul.appendChild(li); });
-    }
+      async function watchAnalysisResult(jobId) {
+        const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
+        let tries = 0;
+        while (state.analysisJobId === jobId && tries < 150) {
+          await delay(1000);
+          tries++;
+          try {
+            const response = await fetch(`/api/results?id=${encodeURIComponent(jobId)}`, { cache: 'no-store' });
+            if (!response.ok) continue;
+            const result = await response.json();
+            if (state.analysisJobId !== jobId) return;
+            if (result.analysisPersonalized || result.stage === 'complete') {
+              const resultActions = $('result-actions');
+              if (resultActions) resultActions.classList.remove('disabled-actions');
+              renderFinalAnalysis(result.analysis);
+              state.finalReport = { ...state.finalReport, ...result, userInfo: state.userInfo, questions: state.finalReport.questions };
+              
+              const analysisStatus = $('analysis-status');
+              if (analysisStatus) {
+                analysisStatus.textContent = result.analysisPersonalized
+                  ? 'Bản tổng kết cá nhân của bạn đã sẵn sàng. Hãy đón nhận những gợi ý phù hợp với mình.'
+                  : (result.analysisMessage || 'Mình đã chuẩn bị một lời nhắn hỗ trợ để bạn không phải chờ thêm.');
+                analysisStatus.className = result.analysisPersonalized ? 'success-box summary-status' : 'info-box summary-status';
+              }
+            }
+            updateDeliveryStatus(result.discord || {}, result.emailFallback || {});
+            if (result.stage === 'complete') return;
+          } catch { /* Bỏ qua lỗi kết nối tạm thời */ }
+        }
+      }
 
-    function renderFinalAnalysis(analysis) {
-      $('analysis-overview').textContent = analysis.overview || '';
-      fillList('analysis-observations', analysis.observations, 'AI không tách riêng được chủ đề nào đủ rõ để khẳng định.');
-      fillList('analysis-strengths', analysis.strengths, 'Không đưa ra kết luận chung về tính cách từ khảo sát ngắn.');
-      fillList('analysis-recommendations', analysis.recommendations, 'Hãy cho mình thời gian và tìm người đáng tin cậy để chia sẻ khi cần.');
-      $('analysis-closing').textContent = analysis.supportiveClosing || 'Cảm xúc của bạn xứng đáng được lắng nghe.';
-    }
+      function fillList(id, items, fallback) {
+        const ul = $(id); 
+        if (!ul) return;
+        ul.replaceChildren();
+        const rows = items && items.length ? items : [fallback];
+        rows.forEach(text => { const li = document.createElement('li'); li.textContent = text; ul.appendChild(li); });
+      }
 
-    function reportAsText() { return state.finalReport?.reportText || ''; }
-    async function copyReport() {
-      const text = reportAsText(); if (!text) return;
-      try { await navigator.clipboard.writeText(text); $('copy-report-btn').textContent = 'Đã sao chép ✓'; }
-      catch { const area = document.createElement('textarea'); area.value = text; document.body.appendChild(area); area.select(); const ok = document.execCommand('copy'); area.remove(); $('copy-report-btn').textContent = ok ? 'Đã sao chép ✓' : 'Không sao chép được'; }
-      setTimeout(() => $('copy-report-btn').textContent = 'Sao chép báo cáo', 1800);
-    }
-    function downloadFile(name, content, type) {
-      const blob = new Blob([content], { type }); const url = URL.createObjectURL(blob);
-      const a = document.createElement('a'); a.href = url; a.download = name; document.body.appendChild(a); a.click(); a.remove(); URL.revokeObjectURL(url);
-    }
-    function downloadTxt() { const txt = reportAsText(); if (txt) downloadFile('PsychoClass_Bao_Cao.txt', txt, 'text/plain;charset=utf-8'); }
-    function downloadJson() {
-      if (!state.finalReport) return;
-      const safeReport = { generatedAt: state.finalReport.timestamp, userInfo: state.userInfo, questions: state.finalReport.questions, analysis: state.finalReport.analysis, discordSent: Boolean(state.finalReport.discord?.sent), emailFallbackSent: Boolean(state.finalReport.emailFallback?.sent) };
-      downloadFile('PsychoClass_Bao_Cao.json', JSON.stringify(safeReport, null, 2), 'application/json;charset=utf-8');
-    }
-    function restartSurvey() {
-      state.questions = []; state.currentIndex = 0; state.answers = Object.create(null); state.userInfo = { nickname: '', age: '' }; state.consentDiscord = false; state.consentEmailFallback = false; state.finalReport = null; state.analysisJobId = null; state.retryCoachQuestionId = null;
-      $('profile-form').reset();$('result-actions').classList.add('disabled-actions'); showView('welcome-view'); checkServer();
-    }
+      function renderFinalAnalysis(analysis) {
+        const overview = $('analysis-overview');
+        if (overview) overview.textContent = analysis.overview || '';
+        fillList('analysis-observations', analysis.observations, 'AI không tách riêng được chủ đề nào đủ rõ để khẳng định.');
+        fillList('analysis-strengths', analysis.strengths, 'Không đưa ra kết luận chung về tính cách từ khảo sát ngắn.');
+        fillList('analysis-recommendations', analysis.recommendations, 'Hãy cho mình thời gian và tìm người đáng tin cậy để chia sẻ khi cần.');
+        const closing = $('analysis-closing');
+        if (closing) closing.textContent = analysis.supportiveClosing || 'Cảm xúc của bạn xứng đáng được lắng nghe.';
+      }
 
-    checkServer();
+      function reportAsText() { return state.finalReport?.reportText || ''; }
+      async function copyReport() {
+        const text = reportAsText(); if (!text) return;
+        const copyBtn = $('copy-report-btn');
+        try { 
+          await navigator.clipboard.writeText(text); 
+          if (copyBtn) copyBtn.textContent = 'Đã sao chép ✓'; 
+        } catch { 
+          const area = document.createElement('textarea'); area.value = text; document.body.appendChild(area); area.select(); document.execCommand('copy'); area.remove(); 
+          if (copyBtn) copyBtn.textContent = 'Đã sao chép ✓'; 
+        }
+        setTimeout(() => { if (copyBtn) copyBtn.textContent = 'Sao chép báo cáo'; }, 1800);
+      }
+      function downloadFile(name, content, type) {
+        const blob = new Blob([content], { type }); const url = URL.createObjectURL(blob);
+        const a = document.createElement('a'); a.href = url; a.download = name; document.body.appendChild(a); a.click(); a.remove(); URL.revokeObjectURL(url);
+      }
+      function downloadTxt() { const txt = reportAsText(); if (txt) downloadFile('PsychoClass_Bao_Cao.txt', txt, 'text/plain;charset=utf-8'); }
+      function downloadJson() {
+        if (!state.finalReport) return;
+        const safeReport = { generatedAt: state.finalReport.timestamp, userInfo: state.userInfo, questions: state.finalReport.questions, analysis: state.finalReport.analysis, discordSent: Boolean(state.finalReport.discord?.sent), emailFallbackSent: Boolean(state.finalReport.emailFallback?.sent) };
+        downloadFile('PsychoClass_Bao_Cao.json', JSON.stringify(safeReport, null, 2), 'application/json;charset=utf-8');
+      }
+      function restartSurvey() {
+        state.questions = []; state.currentIndex = 0; state.answers = Object.create(null); state.userInfo = { nickname: '', age: '' }; state.consentDiscord = false; state.consentEmailFallback = false; state.finalReport = null; state.analysisJobId = null; state.retryCoachQuestionId = null;
+        const profileForm = $('profile-form');
+        const resultActions = $('result-actions');
+        if (profileForm) profileForm.reset(); 
+        if (resultActions) resultActions.classList.add('disabled-actions'); 
+        showView('welcome-view'); 
+        checkServer();
+      }
+
+      checkServer();
+    });
   </script>
 </body>
 </html>
